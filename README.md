@@ -45,3 +45,13 @@ python3 path/to/predict_for_single_surfactant.py path/to/pdb_file.pdb path/to/co
 
 NOTE Update above if I adjust it so that other parameters can be set from here
 
+### Output Files
+LNKD outputs four files. They are automatically named starting with "name_of_input_PDB_file_" and ending with the following four distinctions:
+1. core_pair_output.txt
+2. sur_pair_output.txt
+3. radical_output.txt
+4. pair_output.txt
+
+The first two files contain the lists of predicted polymerization (core) and cycloaddition (surface) pairs respectively. The third includes a list of atoms from the core reactive atoms that became radicals due to their neighboring carbon being paired, but not being predicted to form a pair itself. The final output combines the list of surface and core pairs and can be used to visualize them in PyMOL.
+
+
