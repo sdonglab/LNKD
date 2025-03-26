@@ -1,8 +1,8 @@
 # Super class for bond prediction containing common methods and attributes
 from sklearn.neighbors import KDTree
 from abc import ABC, abstractmethod
-from mipmodel.pair import Pair
-from mipmodel.utils import atoms_to_coords, remove_1st_and_chain
+from pair_prediction.tools.pair import Pair
+from pair_prediction.tools.utils import atoms_to_coords, remove_1st_and_chain
 import numpy as np
 import heapq
 
