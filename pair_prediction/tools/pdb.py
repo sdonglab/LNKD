@@ -1,5 +1,5 @@
-from mipmodel.atom import Atom
-from mipmodel.chain import Chain
+from pair_prediction.tools.atom import Atom
+from pair_prediction.tools.chain import Chain
 
 
 class PDB:
