@@ -1,4 +1,4 @@
-from tools.constraint_validation import are_atoms_same_chain
+from pair_prediction.tools.constraint_validation import are_atoms_same_chain
 import numpy as np
 
 
