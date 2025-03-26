@@ -20,6 +20,13 @@ NOTE insert notes about what parts of our algorithm are specific to these cases/
 
 ## Using LNKD
 
+### Requirements
+
+Code runs on Python3 and uses the modules listed in the requirements.txt file - these can be installed using the following command:
+```text
+$ pip install -r requirements.txt
+```
+
 ### Input Files
 1. Path to PDB structure of pre-crosslinked system
 2. Path to text file containing core reactive atoms (polymerization)
