@@ -17,17 +17,16 @@ class PredictBondsCore(PredictBonds):
     IDEAL_BOND_DIST = 3.0  # angstroms
     BOND_DIST_STD = 2.5
     MAX_CONNECTIVITY = 8
-    ISO_W = -0.05
 
-    def __init__(self, pdb, reactive_input_file):
+    def __init__(self, pdb, reactive_input_file, QR, W):
         """Initializes the PredictBondsSur with a PDB object and a reactive input file.
 
         Args:
             pdb (PDB): The PDB object to predict bonds for.
             reactive_input_file (str): The input file for the specific reactive atom names and residues for the structure..
         """
-        super().__init__(pdb, reactive_input_file)
-        self.query_radius = 10
+        super().__init__(pdb, reactive_input_file, QR, W)
+        self.query_radius = self.QR
 
     def calculate_bond_potential(self, atom1, atom2, atoms_dist):
 
@@ -51,7 +50,7 @@ class PredictBondsCore(PredictBonds):
         #print(isolatedness)
 
         bond_pot = self.bond_potential(
-            atoms_dist, self.IDEAL_BOND_DIST, self.BOND_DIST_STD**2, self.ISO_W, isolatedness
+            atoms_dist, self.IDEAL_BOND_DIST, self.BOND_DIST_STD**2, self.W, isolatedness
         )
 
         return bond_pot
