@@ -28,7 +28,7 @@ class PredictBondsSur(PredictBonds):
             QR (float): The query radius for finding nearby reactive atoms.
             W (float): The weight for the degree of isolation.
         """
-        super().__init__(pdb, reactive_input_file)
+        super().__init__(pdb, reactive_input_file, QR, W)
         self.query_radius = self.QR
 
     def calculate_bond_potential(self, atom1, atom2, atoms_dist):
