@@ -7,13 +7,13 @@ from pair_prediction.predict_cycloaddition import PredictBondsSur
 
 def controller():
 
-    file_path_input, core_reactive_input, sur_reactive_input, output_directory = (
+    file_path_input, core_reactive_input, core_QR, core_W, sur_reactive_input, sur_QR, sur_W, output_directory = (
         handle_input()
     )
     pdb = PDB(file_path_input)
 
-    predict_core_bonds = PredictBondsCore(pdb, core_reactive_input)
-    predict_sur_bonds = PredictBondsSur(pdb, sur_reactive_input)
+    predict_core_bonds = PredictBondsCore(pdb, core_reactive_input, core_QR, core_W)
+    predict_sur_bonds = PredictBondsSur(pdb, sur_reactive_input, sur_QR, sur_W)
     predict_core_bonds.predict_bonding()
     predict_sur_bonds.predict_bonding()
 
@@ -34,7 +34,19 @@ def handle_input():
         "core_reactive_input", help="The path to the core reactive input file"
     )
     parser.add_argument(
+        "core_QR", help="radius around each core reactive atom to perform spatial query (angstrom)"
+    )
+    parser.add_argument(
+        "core_W", help="weight for the degree of isolation term in bond potential of core pairs (float)"
+    )
+    parser.add_argument(
         "sur_reactive_input", help="The path to the surface reactive input file"
+    )
+    parser.add_argument(
+        "sur_QR", help="radius around each core reactive atom to perform spatial query (angstrom)"
+    )
+    parser.add_argument(
+        "sur_W", help="weight for the degree of isolation term in bond potential of surface pairs (float)"
     )
     parser.add_argument(
         "-o", "--output_directory", help="The path to the output directory"
@@ -44,7 +56,11 @@ def handle_input():
 
     file_path_input = args.pdb_file_path
     core_reactive_input = args.core_reactive_input
+    core_QR = args.core_QR
+    core_W = args.core_W
     sur_reactive_input = args.sur_reactive_input
+    sur_QR = args.sur_QR
+    sur_W = args.sur_W
 
     if args.output_directory:
         output_dir = args.output_directory
