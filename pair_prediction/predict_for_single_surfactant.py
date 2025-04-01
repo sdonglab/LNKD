@@ -1,8 +1,8 @@
 import argparse
 import os
-from pair_prediction.tools.pdb import PDB
-from pair_prediction.predict_polymerization import PredictBondsCore
-from pair_prediction.predict_cycloaddition import PredictBondsSur
+from tools.pdb import PDB
+from predict_polymerization import PredictBondsCore
+from predict_cycloaddition import PredictBondsSur
 
 
 def controller():
@@ -34,19 +34,19 @@ def handle_input():
         "core_reactive_input", help="The path to the core reactive input file"
     )
     parser.add_argument(
-        "core_QR", help="radius around each core reactive atom to perform spatial query (angstrom)"
+        "-core_QR", type=float, help="radius around each core reactive atom to perform spatial query (angstrom)"
     )
     parser.add_argument(
-        "core_W", help="weight for the degree of isolation term in bond potential of core pairs (float)"
+        "-core_W", type=float, help="weight for the degree of isolation term in bond potential of core pairs (float)"
     )
     parser.add_argument(
         "sur_reactive_input", help="The path to the surface reactive input file"
     )
     parser.add_argument(
-        "sur_QR", help="radius around each core reactive atom to perform spatial query (angstrom)"
+        "-sur_QR", type=float, help="radius around each core reactive atom to perform spatial query (angstrom)"
     )
     parser.add_argument(
-        "sur_W", help="weight for the degree of isolation term in bond potential of surface pairs (float)"
+        "-sur_W", type=float, help="weight for the degree of isolation term in bond potential of surface pairs (float)"
     )
     parser.add_argument(
         "-o", "--output_directory", help="The path to the output directory"
@@ -67,7 +67,7 @@ def handle_input():
     else:
         output_dir = os.path.dirname(file_path_input)
 
-    return file_path_input, core_reactive_input, sur_reactive_input, output_dir
+    return file_path_input, core_reactive_input, core_QR, core_W, sur_reactive_input, sur_QR, sur_W, output_dir
 
 
 def handle_output(file_path_input, output_directory, pdb):

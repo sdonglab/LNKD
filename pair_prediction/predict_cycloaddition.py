@@ -1,7 +1,7 @@
-from pair_prediction.enums import SchemeOneBE, SchemeOneBN, SchemeTwoBN
-from pair_prediction.tools.pair import Pair
-from pair_prediction.tools.predict_bonds import PredictBonds
-from pair_prediction.tools.constraint_validation import is_valid_LN2_surface_pair
+from enums import SchemeOneBE, SchemeOneBN, SchemeTwoBN
+from tools.pair import Pair
+from tools.predict_bonds import PredictBonds
+from tools.constraint_validation import is_valid_LN2_surface_pair
 
 
 class PredictBondsSur(PredictBonds):
@@ -19,7 +19,7 @@ class PredictBondsSur(PredictBonds):
     BOND_DIST_STD = 2.5
     MAX_CONNECTIVITY = 8
 
-    def __init__(self, pdb, reactive_input_file, QR, W):
+    def __init__(self, pdb, reactive_input_file, query_radius, weight):
         """Initializes the PredictBondsSur with a PDB object and a reactive input file.
 
         Args:
@@ -28,8 +28,7 @@ class PredictBondsSur(PredictBonds):
             QR (float): The query radius for finding nearby reactive atoms.
             W (float): The weight for the degree of isolation.
         """
-        super().__init__(pdb, reactive_input_file, QR, W)
-        self.query_radius = self.QR
+        super().__init__(pdb, reactive_input_file, query_radius, weight)
 
     def calculate_bond_potential(self, atom1, atom2, atoms_dist):
 
@@ -49,13 +48,10 @@ class PredictBondsSur(PredictBonds):
             isolatedness = self.MAX_CONNECTIVITY - connectivity
         else:
             isolatedness = self.MAX_CONNECTIVITY
-        
-        #print(isolatedness)
 
         bond_pot = self.bond_potential(
-            atoms_dist, self.IDEAL_BOND_DIST, self.BOND_DIST_STD**2, self.W, isolatedness
+            atoms_dist, self.IDEAL_BOND_DIST, self.BOND_DIST_STD**2, self.weight, isolatedness
         )
-        #print(bond_pot, atoms_dist, isolatedness)
         return bond_pot
 
 

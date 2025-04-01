@@ -1,5 +1,5 @@
-from pair_prediction.tools.atom import Atom
-from pair_prediction.tools.chain import Chain
+from tools.atom import Atom
+from tools.chain import Chain
 
 
 class PDB:

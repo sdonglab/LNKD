@@ -1,8 +1,8 @@
 # Super class for bond prediction containing common methods and attributes
 from sklearn.neighbors import KDTree
 from abc import ABC, abstractmethod
-from pair_prediction.tools.pair import Pair
-from pair_prediction.tools.utils import atoms_to_coords, remove_1st_and_chain
+from tools.pair import Pair
+from tools.utils import atoms_to_coords, remove_1st_and_chain
 import numpy as np
 import heapq
 
@@ -20,7 +20,7 @@ class PredictBonds(ABC):
         reactive_input_file (str): The input file for the specific reactive atom names and residues for the structure.
     """
 
-    def __init__(self, pdb: str, reactive_input_file: str):
+    def __init__(self, pdb: str, reactive_input_file: str, query_radius: float, weight: float):
         """Inits PredictBonds with pdb and reactive_input_file.
 
         Args:
@@ -32,12 +32,13 @@ class PredictBonds(ABC):
         self.probability_heap = []
         self.potential_pairs = []
         self.reactive_atoms = []
-        self.query_radius = None
+        self.query_radius = query_radius
+        self.weight = weight
         self.reactive_input_file = reactive_input_file
 
     @abstractmethod
     def calculate_bond_potential(
-        self, atom1, atom2, atoms_dist: float, ideal_distance: float, iso_weight: float, isolatedness: float
+        self, atom1, atom2, atoms_dist: float, ideal_distance: float, weight: float, isolatedness: float
     ) -> float:
         """Calculate the bond potential between two atoms.
 
@@ -191,7 +192,6 @@ class PredictBonds(ABC):
         root_pair = heapq.heappop(self.probability_heap)
         self.potential_pairs.remove(root_pair)
         root_pair.bond_pair()
-        print(root_pair.probability)
         return root_pair
 
     def init_prob_heap(self):
