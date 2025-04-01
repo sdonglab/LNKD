@@ -27,13 +27,15 @@ Code runs on Python3 and uses the modules listed in the requirements.txt file - 
 $ pip install -r requirements.txt
 ```
 
-### Input Files
+### Input
 1. Path to PDB structure of pre-crosslinked system
 2. Path to text file containing core reactive atoms (polymerization)
-3. Path to text file containing surface reactive atoms (cycloaddition)
-4. Path to output directory (optional, default = current directory)
-
-NOTE see if I can edit scripts to take weight and query radius for both the surface and the core as inputs as well so that users don't have to edit scripts each time
+3. Query radius for finding nearby reactive atoms in the core (float, angstrom)
+4. Weight for the degree of isolation when predicting core pairs (float)
+5. Path to text file containing surface reactive atoms (cycloaddition)
+6. Query radius for finding nearby reactive atoms in the surface (float, angstrom)
+4. Weight for the degree of isolation when predicting surface pairs (float)
+7. Path to output directory (optional, default = current directory)
 
 The format of the text file of reactive atoms should be as follows:
 ```text
@@ -45,12 +47,10 @@ Where the first column has the atom name (stored in columns 13-16 of your PDB fi
 
 ### Running from Command Line
 
-To run LNKD, simply run the predict_for_single_surfactant.py script (or your user modified version) with paths to the relevant input files in the following format:
+Below is the command used to generate the output files found in the 'example' directory. Edit paths, query radii, and weights, for your system.
 ```text
-python3 path/to/predict_for_single_surfactant.py path/to/pdb_file.pdb path/to/core_reactive_atoms.txt path/to/surface_reactive_atoms.txt -o path/to/output_directory/
+python3 ./pair_prediction/predict_for_single_surfactant.py ./example/input/1-PSA_MINP_build1_round2_pair_opt.pdb ./example/input/core_reactive.txt -core_QR 10 -core_W -0.05 ./example/input/sur_reactive.txt -sur_QR 15 -sur_W -0.05 -o ./example/output/
 ```
-
-NOTE Update above if I adjust it so that other parameters can be set from here
 
 ### Output Files
 LNKD outputs four files. They are automatically named starting with "name_of_input_PDB_file_" and ending with the following four distinctions:
