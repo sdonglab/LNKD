@@ -13,10 +13,8 @@ LNKD uses a dictionary of reactive atoms to parse a PDB file and generate a KD-t
 
 ## Use Cases
 LNKD can modified by users to be broadly applied to crosslink prediction in any polymer network. We have used the method to simultaneously predict both of the following types of crosslinks in structures of pre-crosslinked micelles to model molecularly imprinted nanoparticles (MINPs) from their monomers:
-1. Azide-alkyne cycloaddition to form triazoles
-2. radical polymerization of alkenes to form carbon-carbon bonds
-
-NOTE insert notes about what parts of our algorithm are specific to these cases/what they would have to change
+1. Azide-alkyne cycloaddition to form triazoles on the surface of the micelles
+2. radical polymerization of alkenes to form carbon-carbon bonds in the core of the micelles
 
 ## Using LNKD
 
@@ -45,6 +43,8 @@ ATOM3 ResidueName3
 ```
 Where the first column has the atom name (stored in columns 13-16 of your PDB file) and the second column is the name of the residue type the atom belongs to (stored in columns 18-20 of your PDB file).
 
+NOTE: Our surface pair prediction is set up for azide alkyne cycloaddition. The list of surface reactive atoms includes the terminal carbon of each of the three alkynes on a surfactant (SUR) and the terminal nitrogen of the two azides on our diazide linker (LN2). The code automatically uses those atoms to find the other carbon and nitrogen that would form a bond during the cycloaddition. This ensures the algorithm doesn't form bonds to two different azides from the same alkyne for example. This can be modified to work for any crosslink that includes the formation of more than one bond. Crosslinks involving the formation of only one bond, such as in radical polymerization, should use our core bond prediction scripts
+
 ### Running from Command Line
 
 Below is the command used to generate the output files found in the 'example' directory. Edit paths, query radii, and weights, for your system.
@@ -52,7 +52,7 @@ Below is the command used to generate the output files found in the 'example' di
 python3 ./pair_prediction/predict_for_single_surfactant.py ./example/input/1-PSA_MINP_build1_round2_pair_opt.pdb ./example/input/core_reactive.txt -core_QR 10 -core_W -0.05 ./example/input/sur_reactive.txt -sur_QR 15 -sur_W -0.05 -o ./example/output/
 ```
 
-### Output Files
+### Output
 LNKD outputs four files. They are automatically named starting with "name_of_input_PDB_file_" and ending with the following four distinctions:
 1. core_pair_output.txt
 2. sur_pair_output.txt
