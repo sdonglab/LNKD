@@ -1,5 +1,5 @@
 # LNKD
-A resource efficient algorithm for predicting polymer crosslinking by Linking Nodes in KD-trees
+A resource efficient algorithm for predicting polymer crosslinking by Linking Nodes in KD-trees (LINKD)
 
 ## Associated Manuscript
 Provide citation here:
