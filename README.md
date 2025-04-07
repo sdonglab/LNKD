@@ -37,9 +37,9 @@ $ pip install -r requirements.txt
 
 The format of the text file of reactive atoms should be as follows:
 ```text
-ATOM1 ResidueName1
-ATOM2 ResidueName2
-ATOM3 ResidueName3
+ATOMi ResidueI
+ATOMj ResidueJ
+ATOMk ResidueK
 ```
 Where the first column has the atom name (stored in columns 13-16 of your PDB file) and the second column is the name of the residue type the atom belongs to (stored in columns 18-20 of your PDB file).
 
