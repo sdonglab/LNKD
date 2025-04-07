@@ -162,9 +162,9 @@ def generate_eq_add_file(pdb_file, template, post_poly_bonds, output_file):
 
         f.write("\n")
 
-        # UPPER_WALLS ARG=p01_dist AT=YYYY KAPPA=500000 EXP=2 OFFSET=0 LABEL=p01_dist-uwall
+        # UPPER_WALLS ARG=p01_dist AT=XXXX KAPPA=500000 EXP=2 OFFSET=0 LABEL=p01_dist-uwall
         for i in range(1, len(pairs_data) + 1):
-            write_upper_wall(f, f"p{i:02}_dist", "YYYY", f"p{i:02}_dist-uwall")
+            write_upper_wall(f, f"p{i:02}_dist", "XXXX", f"p{i:02}_dist-uwall")
 
         f.write("\n")
 
