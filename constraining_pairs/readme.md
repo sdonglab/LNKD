@@ -12,5 +12,14 @@ The constrained_distances.py script takes the following arguments:
 
 For example, to generate a PLUMED file for the surface pair output in the example output directory, run the following command:
 ``` text
-Python3 constraining_pairs/constrained_distances.py example/input/1-PSA_MINP_build1_round2_pair_opt.pdb PSA example/output/1-PSA_MINP_build1_round2_pair_opt_sur_pair_output.txt -o template.dat
+Python3 constraining_pairs/constrained_distances.py example/input/1-PSA_MINP_build1_round2_pair_opt.pdb PSA example/output/1-PSA_MINP_build1_round2_pair_opt_sur_pair_output.txt -o example.dat
+```
+## Performing constrained MD
+To avoid unstable simulations, we slowly adjust constraints to bring predicted pairs within 0.3 nm (GROMACS uses nm) of one another. This is why, in the PLUMED file, the value of the upper wall constraint on the pair distances is set to XXXX. We used 27 MD simulations, to bring the upper wall constraint from 1.5 nm to 0.3 nm. All simulations used the parameters in the push.mdp file attached were run with commands like the following:
+``` text
+sed 's/XXXX/1.50/g' example.dat > plumed.dat
+gmx_mpi grompp -f push.mdp -c npt.gro -r npt.gro -t npt.cpt -n index.ndx -p topol.top -o md.tpr
+gmx_mpi mdrun -ntomp $SLURM_CPUS_PER_TASK -s md.tpr -plumed plumed.dat
+mv confout.gro push1.gro
+mv state.cpt push1.cpt
 ```
