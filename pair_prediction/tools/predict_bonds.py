@@ -98,7 +98,7 @@ class PredictBonds(ABC):
 
     # the bond potential function to "rank" potential pairs
     def bond_potential(
-        self, atom_dist: float, dist_equilibrium: float, dist_variance: float, iso_weight: float, isolatedness: float, Cmax: integer
+        self, atom_dist: float, dist_equilibrium: float, dist_variance: float, iso_weight: float, isolatedness: float, Cmax: int
     ) -> float:
         """Calculate the bond potential between two atoms.
 
