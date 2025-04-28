@@ -38,7 +38,7 @@ class PredictBonds(ABC):
 
     @abstractmethod
     def calculate_bond_potential(
-        self, atom1, atom2, atoms_dist: float, ideal_distance: float, weight: float, isolatedness: float, Cmax: integer
+        self, atom1, atom2, atoms_dist: float, ideal_distance: float, weight: float, isolatedness: float, Cmax: int
     ) -> float:
         """Calculate the bond potential between two atoms.
 
