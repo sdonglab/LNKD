@@ -47,7 +47,7 @@ class PredictBondsCore(PredictBonds):
             isolatedness = self.MAX_CONNECTIVITY
 
         bond_pot = self.bond_potential(
-            atoms_dist, self.IDEAL_BOND_DIST, self.BOND_DIST_STD**2, self.weight, isolatedness
+            atoms_dist, self.IDEAL_BOND_DIST, self.BOND_DIST_STD**2, self.weight, isolatedness, self.MAX_CONNECTIVITY
         )
 
         return bond_pot
