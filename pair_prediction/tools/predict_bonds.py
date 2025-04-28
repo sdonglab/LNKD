@@ -38,7 +38,7 @@ class PredictBonds(ABC):
 
     @abstractmethod
     def calculate_bond_potential(
-        self, atom1, atom2, atoms_dist: float, ideal_distance: float, weight: float, isolatedness: float
+        self, atom1, atom2, atoms_dist: float, ideal_distance: float, weight: float, isolatedness: float, Cmax: integer
     ) -> float:
         """Calculate the bond potential between two atoms.
 
@@ -98,7 +98,7 @@ class PredictBonds(ABC):
 
     # the bond potential function to "rank" potential pairs
     def bond_potential(
-        self, atom_dist: float, dist_equilibrium: float, dist_variance: float, iso_weight: float, isolatedness: float
+        self, atom_dist: float, dist_equilibrium: float, dist_variance: float, iso_weight: float, isolatedness: float, Cmax: integer
     ) -> float:
         """Calculate the bond potential between two atoms.
 
@@ -110,8 +110,7 @@ class PredictBonds(ABC):
         Returns:
             float: The bond potential between the two atoms.
         """
-        return ((1.0 / np.sqrt(2 * np.pi * dist_variance)) * np.exp(
-            -((atom_dist - dist_equilibrium) ** 2) / (2 * dist_variance)) - (iso_weight*isolatedness)
+        return ((np.exp(-((atom_dist - dist_equilibrium) ** 2) / (2 * dist_variance)) - (iso_weight*isolatedness)) / (1 + iso_weight*Cmax)
         )
         
 
