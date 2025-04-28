@@ -110,7 +110,7 @@ class PredictBonds(ABC):
         Returns:
             float: The bond potential between the two atoms.
         """
-        return ((np.exp(-((atom_dist - dist_equilibrium) ** 2) / (2 * dist_variance)) - (iso_weight*isolatedness)) / (1 + iso_weight*Cmax)
+        return ((np.exp(-((atom_dist - dist_equilibrium) ** 2) / (2 * dist_variance)) + (iso_weight*isolatedness)) / (1 + iso_weight*Cmax)
         )
         
 
