@@ -1,3 +1,5 @@
+### Author: Bradford Derby ###
+
 class Chain:
     """Represents a chain/molecule in a PDB file or structure.
 
