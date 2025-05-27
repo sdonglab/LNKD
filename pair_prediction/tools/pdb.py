@@ -1,3 +1,6 @@
+### Author: Bradford Derby ###
+# PDB parsing based on CHARMM-GUI (Jo, S. et al., J. Comput. Chem. 2008) #
+
 from tools.atom import Atom
 from tools.chain import Chain
 
