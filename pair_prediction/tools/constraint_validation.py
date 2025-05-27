@@ -1,3 +1,6 @@
+###  Author: Bradford Derby   ###
+### Modified by: Emma Stevens ###
+
 def are_atoms_bonded(atom1, atom2):
     """Checks if either of the given atoms are bonded.
 
