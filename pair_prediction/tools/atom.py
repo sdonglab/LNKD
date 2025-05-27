@@ -1,3 +1,5 @@
+### Author: Bradford Derby ###
+
 class Atom:
     """Represents an atom in a PDB file or structure
 
