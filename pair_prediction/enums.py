@@ -1,3 +1,5 @@
+### Author: Bradford Derby ###
+
 from enum import Enum
 
 
