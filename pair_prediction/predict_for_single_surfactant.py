@@ -1,3 +1,6 @@
+###  Author: Bradford Derby   ###
+### Modified by: Emma Stevens ###
+
 import argparse
 import os
 from tools.pdb import PDB
