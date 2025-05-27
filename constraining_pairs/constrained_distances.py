@@ -1,3 +1,5 @@
+### Author: Bradford Derby ###
+
 import argparse
 from md_utils import (
     write_distance_of_ranges,
