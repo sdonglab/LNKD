@@ -1,3 +1,6 @@
+###  Author: Bradford Derby   ###
+### Modified by: Emma Stevens ###
+
 from tools.predict_bonds import PredictBonds
 from tools.constraint_validation import is_valid_core_pair
 from tools.utils import calc_distance
