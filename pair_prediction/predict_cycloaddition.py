@@ -1,3 +1,6 @@
+###  Author: Bradford Derby   ###
+### Modified by: Emma Stevens ###
+
 from enums import SchemeOneBE, SchemeOneBN, SchemeTwoBN
 from tools.pair import Pair
 from tools.predict_bonds import PredictBonds
