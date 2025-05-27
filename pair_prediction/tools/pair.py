@@ -1,3 +1,5 @@
+### Author: Bradford Derby ###
+
 class Pair:
     """Represents a potential pairing of atoms in a structure.
 
