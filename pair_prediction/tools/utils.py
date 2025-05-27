@@ -1,3 +1,5 @@
+### Author: Bradford Derby ###
+
 from tools.constraint_validation import are_atoms_same_chain
 import numpy as np
 
