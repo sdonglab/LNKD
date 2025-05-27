@@ -1,3 +1,6 @@
+###  Author: Bradford Derby   ###
+### Modified by: Emma Stevens ###
+
 # Super class for bond prediction containing common methods and attributes
 from sklearn.neighbors import KDTree
 from abc import ABC, abstractmethod
