@@ -62,4 +62,5 @@ LNKD outputs four files. They are automatically named starting with "name_of_inp
 
 The first two files contain the lists of predicted polymerization (core) and cycloaddition (surface) pairs respectively. The third includes a list of atoms from the core reactive atoms that became radicals due to their neighboring carbon being paired, but not being predicted to form a pair itself. The final output combines the list of surface and core pairs and can be used to visualize them in PyMOL or other molecular graphics software.
 
-
+---
+© 2025 Northeastern University. All rights reserved.  Any commercial use of this work without explicit written permission from the copyright holder is strictly prohibited. 
