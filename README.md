@@ -2,9 +2,9 @@
 A resource efficient algorithm for predicting polymer crosslinking by Linking Nodes in KD-trees (LNKD)
 
 ## Associated Manuscript
-Provide citation here:
+The following paper describes the methodology and benchmarking in detail. Please cite this paper should you use or reference this work:
 
-Kindly cite the above paper should you use or reference this work.
+Stevens, E.; Curtolo, F.; Derby, B.; Wallace, D.; Zhao, Y.; Dong, S. S. Modeling Molecularly Imprinted Nanoparticles with LNKD: A Resource Efficient Algorithm for Polymer Crosslinking. _ChemRxiv_ June 13, 2025. https://doi.org/10.26434/chemrxiv-2025-sfrfh.
 
 ## Motivation
 Crosslinked polymer materials have extensive applications in industrial, pharmaceutical, energy, and health related fields. Computational efforts to model, characterize, and design these materials are limited in part due to challenges in solving their matrix-like and probabilistic structures experimentally. Despite work to predict polymer crosslinking, it remains a computationally expensive and underexplored task. We propose LNKD, a resource efficient algorithm for predicting pairs of reactive atoms in pre-crosslinked 3D structures to form crosslinked polymers. 
@@ -63,4 +63,4 @@ LNKD outputs four files. They are automatically named starting with "name_of_inp
 The first two files contain the lists of predicted polymerization (core) and cycloaddition (surface) pairs respectively. The third includes a list of atoms from the core reactive atoms that became radicals due to their neighboring carbon being paired, but not being predicted to form a pair itself. The final output combines the list of surface and core pairs and can be used to visualize them in PyMOL or other molecular graphics software.
 
 ---
-© 2025 Northeastern University. All rights reserved.  Any commercial use of this work without explicit written permission from the copyright holder is strictly prohibited. 
+© 2025 Northeastern University. All rights reserved. Any commercial use of this work without explicit written permission from the copyright holder is strictly prohibited. 
