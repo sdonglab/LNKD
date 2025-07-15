@@ -50,7 +50,7 @@ NOTE: Our surface pair prediction is set up for azide alkyne cycloaddition. The 
 
 Below is the command used to generate the output files found in the 'example' directory. Edit paths, query radii, and weights, for your system.
 ```text
-python3 ./pair_prediction/predict_for_single_surfactant.py ./example/input/1-PSA_MINP_build1_round2_pair_opt.pdb ./example/input/core_reactive.txt -core_QR 10 -core_W -0.05 ./example/input/sur_reactive.txt -sur_QR 15 -sur_W -0.05 -o ./example/output/
+python3 ./pair_prediction/predict_for_single_surfactant.py ./example/input/1-PSA_MINP_build1_round2_pair_opt.pdb ./example/input/core_reactive.txt -core_QR 10 -core_W 0.03 ./example/input/sur_reactive.txt -sur_QR 15 -sur_W 0.03 -o ./example/output/
 ```
 
 ### Output
