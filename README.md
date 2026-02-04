@@ -4,7 +4,7 @@ A resource efficient algorithm for predicting polymer crosslinking by Linking No
 ## Methodology & Citation
 The following paper describes the methodology and benchmarking in detail. Please cite this paper should you use or reference this work:
 
-Stevens, E.; Curtolo, F.; Derby, B.; Wallace, D.; Zhao, Y.; Dong, S. S. Modeling Molecularly Imprinted Nanoparticles with LNKD: A Resource Efficient Algorithm for Polymer Crosslinking. _ChemRxiv_ June 13, 2025. https://doi.org/10.26434/chemrxiv-2025-sfrfh.
+Stevens, E.; Curtolo, F.; Derby, B.; Wallace, D.; Zhao, Y.; Dong, S. S. Modeling Molecularly Imprinted Nanoparticles with LNKD: A Resource Efficient Algorithm for Polymer Crosslinking. _J. Chem. Inf. Model_ 2025. https://doi.org/10.1021/acs.jcim.5c01376.
 
 ## Motivation
 Crosslinked polymer materials have extensive applications in industrial, pharmaceutical, energy, and health related fields. Computational efforts to model, characterize, and design these materials are limited in part due to challenges in solving their matrix-like and probabilistic structures experimentally. Despite work to predict polymer crosslinking, it remains a computationally expensive and underexplored task. We propose LNKD, a resource efficient algorithm for predicting pairs of reactive atoms in pre-crosslinked 3D structures to form crosslinked polymers. 
